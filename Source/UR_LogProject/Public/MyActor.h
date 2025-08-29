@@ -10,17 +10,25 @@ UCLASS()
 class UR_LOGPROJECT_API AMyActor : public AActor
 {
 	GENERATED_BODY()
-	
+private:
+	FVector2D start;
+	FVector2D end;
+	int32 evCnt;
+	float totDist;
+	float dist;
+
 public:	
-	// Sets default values for this actor's properties
 	AMyActor();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+public:
+	float Distance(FVector2D first, FVector2D second);
+	void Move();
+	int32 Step();
+	int32 CreateEvent();
 };
